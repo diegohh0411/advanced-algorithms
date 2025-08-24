@@ -1,0 +1,26 @@
+You are a consultant for an investment company whose main problem is knowing when to buy and sell their investments in a way that maximizes its profit. For this they have market prices for n consecutive days. You are asked to do a simulator, where n given the prices, will display in day to buy and the day you must sell, in a way that maximizes its profit. When a tie must show the first instance of that value.
+
+Input:
+First comes the number of N cases.
+Then, for each case type the number of D days (1 < D <= 50).
+Finally type the prices for the D days. (1 <= Pi <= 10 3 )
+
+Output:
+For each case should come one line with the buying day and the selling day. Follow
+the presentation format of the sample output.
+
+Sample Input:
+2
+3
+9
+1
+5
+5
+1
+2
+3
+4
+5
+Sample Output:
+Buy in 2, sell in 3
+Buy in 1, sell in 5

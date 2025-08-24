@@ -1,0 +1,1 @@
+cl .\act03.cpp; Get-Content ./act03.in | .\act03.exe
