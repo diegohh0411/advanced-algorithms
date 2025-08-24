@@ -1,0 +1,17 @@
+Se tiene un nuevo diseño de robot que sirve para la exploración de nuevos terrenos, el cual utiliza cierta cantidad de combustible dependiendo del terreno. El robot solo puede moverse en 2 direcciones, Sur (abajo) y Este (derecha). Por medio de satélite se tiene el mapa de los terrenos y se calculo la cantidad de combustible requerido por el robot para ese cuadrante, esta información se almacenó en una matriz de nxm (n renglones y m columnas). Desarrolla un programa que dada una matriz despliegue la cantidad mínima de combustible que se requiere para ir del punto [0][0] al punto [n-1][m-1].
+
+Entrada:
+En una línea vienen n y m (n = renglones y m = columnas) y posteriormente los
+n x m enteros que representan la cantidad de combustible necesario para
+moverte en ese terreno.
+Salida:
+Cantidad mínimo de combustible.
+Ejemplo de Entrada:
+5 4
+2 2 15 1
+5 1 15 1
+5 3 10 1
+5 2 1 1
+8 13 2 15
+Ejemplo de Salida:
+27
