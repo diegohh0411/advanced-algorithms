@@ -105,11 +105,19 @@ int main() {
     std::cin >> pattern;
 
     std::vector<int> result = search(pattern, text);
+
     std::vector<bool> indexes = tell_which_to_include(text, result, pattern.size());
+
+    std::string string_to_print;
 
     for (int i = 0; i < text.size(); i++) {
         if (indexes[i])
-            std::cout << text[i];
+            string_to_print += text[i];
     }
-    std::cout << std::endl;
+    
+    if (string_to_print.size() == 0) {
+        std::cout << "NO TRUSTED MESSAGE" << std::endl;
+    } else {
+        std::cout << string_to_print << std::endl;
+    }
 }
