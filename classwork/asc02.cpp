@@ -9,7 +9,7 @@ std::vector<int> compute_lps_array(std::string& pattern) {
     int n = pattern.size();
     std::vector<int> lps(n);
 
-    int len = 0; // We maintain a variable len, initialized to 0, which keeps track of the length of the previous longest prefix suffix.
+    int len = 0;
     int i = 1; 
 
     while (i < n) {
@@ -19,7 +19,6 @@ std::vector<int> compute_lps_array(std::string& pattern) {
             i++;
         } else {
             if (len != 0) {
-                // Fall back in the pattern.
                 len = lps[len - 1]; 
             } else {
                 lps[i] = 0;
@@ -63,7 +62,7 @@ std::vector<int> search(std::string& pattern, std::string& text) {
 
                 j = lps[j - 1];
             }
-        } else { // If there is a mismatch, use LPS value of the previous index to avoid redundant comparisons.equal" << std::endl;
+        } else { // If there is a mismatch, use LPS value of the previous index to avoid redundant comparisons
             if (j != 0)
                 j = lps[j - 1];
             else 
