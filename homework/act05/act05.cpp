@@ -8,7 +8,6 @@
 
 // Complejidad temporal: O(a + b)
 // Complejidad espacial: O(a + b)
-// Lee la entrada y crea tres vectores con los valores dados
 std::tuple<std::vector<int>, std::vector<int>, std::vector<int>> get_input(int a, int b) {
     std::vector<int> nums1, nums2, combo;
     int input_value;
@@ -33,8 +32,6 @@ std::tuple<std::vector<int>, std::vector<int>, std::vector<int>> get_input(int a
 
 // Complejidad temporal: O(2^(n1 + n2)) en el peor caso
 // Complejidad espacial: O(n1 + n2) para la pila de recursión
-// Función recursiva de backtracking que determina si es posible formar la secuencia combo
-// usando elementos de nums1 y nums2 en orden
 bool is_possible(
     std::vector<int>& nums1, int& i1, int& n1,
     std::vector<int>& nums2, int& i2, int& n2,
@@ -76,7 +73,6 @@ bool is_possible(
 
 // Complejidad temporal: O(k * 2^(n1 + n2)) donde k es el número de casos de prueba
 // Complejidad espacial: O(n1 + n2) para almacenar los vectores y la pila de recursión
-// Función principal que coordina la lectura de entrada y llama al algoritmo de verificación
 int main() {
     int n1;
     int n2;
