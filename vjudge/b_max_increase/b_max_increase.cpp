@@ -6,15 +6,15 @@
 int algorithm(std::vector<int>& vec, int& n) {
     int max_len = 0;
     for (int i = 0; i < n; i++) {
-        int len = 1;
+        int current_len = 1;
         int last_number = vec[i];
 
         for (int j = i + 1; j < n && vec[j] > last_number; j++) {
-            len++;
+            current_len++;
             last_number = vec[j];
         }
 
-        if (len > max_len) max_len = len;
+        if (current_len > max_len) max_len = current_len;
     }
 
     return max_len;
