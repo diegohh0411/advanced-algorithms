@@ -3,25 +3,27 @@
 #include <iostream>
 #include <vector>
 
-// Complejidad temporal: O(n^2) en el peor de los casos, donde el vector está ordenado ascendentemente
+// Complejidad temporal: O(n)
 int algorithm(std::vector<int>& vec, int& n) {
-    int max_len = 0;
-    for (int i = 0; i < n; i++) { // O(n)
-        int current_len = 1;
-        int last_number = vec[i];
+    if (n == 0) return 0;
 
-        for (int j = i + 1; j < n && vec[j] > last_number; j++) { // O(n - 1) en el peor de los casos, donde el vector está ordenado totalmente de forma ascendente
+    int max_len = 1;
+    int current_len = 1;
+
+    for (int i = 1; i < n; i++) { // O(n)
+        if (vec[i] > vec[i - 1]) {
             current_len++;
-            last_number = vec[j];
+        } else {
+            if (current_len > max_len) max_len = current_len;
+            current_len = 1;
         }
-
-        if (current_len > max_len) max_len = current_len;
     }
+    if (current_len > max_len) max_len = current_len;
 
     return max_len;
 }
 
-// Complejidad temporal: O(n^2)
+// Complejidad temporal: O(n)
 int main() {
     int n;
     std::cin >> n;
@@ -30,7 +32,7 @@ int main() {
     for (int i = 0; i < n; i++) // O(n)
         std::cin >> vec[i];
 
-    std::cout << algorithm(vec, n) << std::endl; // O(n^2)
+    std::cout << algorithm(vec, n) << std::endl; // O(n)
 
     return 0;
 }
