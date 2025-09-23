@@ -23,7 +23,7 @@ int main() {
         int ct = si; // Current time of the bus route.
         while (ct < t) { // Complejidad en el peor de los casos, cuando si = 0 y di = 1, O(t)
         // While we don't have the first bus that arrives after Serval has already arrived, we want to calculate the next bus that will arive using `ct` and `di`.
-            ct += si;
+            ct += di;
         }
 
         std::tuple<int, int> first_bus_to_arrive_after_serval(ct, i);
@@ -35,4 +35,6 @@ int main() {
     auto [time, route] = times.front();
 
     std::cout << (route + 1) << std::endl;
+
+    return 0;
 }
