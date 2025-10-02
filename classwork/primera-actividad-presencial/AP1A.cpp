@@ -9,7 +9,7 @@
 
 /**
  * Pregunta acerca del problema: qué pasa si en el vector NO existe ni un solo par de números enteros iguales? Por ejemplo: ´[1 2 3]`. El algoritmo debería de regresar true or false? Yo estoy asumiendo que debería de regresar `false`, porque las instrucciones dicen "encuentra si existen dos enteros iguales almacenados en el vector...". O sea que si no existen al menos un par de enteros iguales la respuesta es: no, no existen. False.
- * /
+ */
 
 // Complejidad: O(n * k) donde n es la cantidad de elementos en el vector y k la cantidad de elementos distintos en el vector
 bool iguales(std::vector<int> &d, int k){

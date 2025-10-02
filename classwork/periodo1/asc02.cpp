@@ -10,7 +10,7 @@ std::vector<int> compute_lps_array(std::string& pattern) {
     std::vector<int> lps(n);
 
     int len = 0;
-    int i = 1; 
+    int i = 1;
 
     while (i < n) {
         if (pattern[i] == pattern[len]) {
