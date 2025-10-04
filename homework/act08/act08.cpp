@@ -8,6 +8,8 @@
 
 using Matrix = std::vector<std::vector<int>>;
 
+
+// Complejidad: O(n^2), donde n es el número de nodos
 void print(Matrix& m) {
     int n = m.size();
 
@@ -28,6 +30,7 @@ void print(Matrix& m) {
     }
 }
 
+// Complejidad: O(n^2), donde n es el número de nodos (vértices). Este es el costo del algoritmo de Dijkstra usando una matriz de adyacencia.
 int modifiedDijkstra(Matrix& noise, int source, int destination) {
     int n = noise.size();
     std::vector<int> max_noise_in_route(n, INF); 
@@ -69,6 +72,7 @@ int modifiedDijkstra(Matrix& noise, int source, int destination) {
     return max_noise_in_route[destination];
 }
 
+// Complejidad: O(n^2 + m), donde n es el número de nodos y m es el número de aristas
 Matrix buildAdjacencyMatrix(int nodes, int edges) {
     Matrix matr;
     matr.resize(nodes + 1, std::vector<int>(nodes + 1, INF));
@@ -86,8 +90,8 @@ Matrix buildAdjacencyMatrix(int nodes, int edges) {
     return matr;
 }
 
+// Complejidad: O(T * (C^2 + S + Q * C^2)), donde T es el número de casos, C es el número de ciudades (nodos), S el número de calles (aristas) y Q el número de consultas. Por cada caso, se construye una matriz (C^2 + S) y luego por cada consulta se ejecuta Dijkstra modificado (C^2).
 int main() {
-
     int no_of_cases;
 
     std::cin >> no_of_cases;
