@@ -1,6 +1,8 @@
 Case 1:
-no path
-no path
+80
+60
+60
 Case 2:
-1
-1
+40
+no path
+80
