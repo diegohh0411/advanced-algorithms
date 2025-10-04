@@ -29,7 +29,7 @@ void print(Matrix& m) {
     }
 }
 
-// Complejidad: O(n²) donde n es la cantidad de vértices
+// Complejidad: O(n^2) donde n es la cantidad de vértices
 int dijkstra(Matrix& mat, int source, int destination) {
     int nodes = mat.size();
     std::vector<int> distances(nodes, INF); 
@@ -68,6 +68,7 @@ int dijkstra(Matrix& mat, int source, int destination) {
     return distances[destination];
 }
 
+// Complejidad: O(n^3) donde n es la cantidad de vértices (ejecuta Dijkstra n veces)
 std::vector<int> calculateShortestPaths(Matrix& m) {
     int nodes = m.size();
 
@@ -106,6 +107,7 @@ Matrix buildAdjacencyMatrix(int nodes, int edges) {
     return matr;
 }
 
+// Complejidad: O(k * n^3) donde k es el número de casos y n es la cantidad de vértices
 int main() {
     int no_of_cases;
     std::cin >> no_of_cases;
@@ -122,6 +124,7 @@ int main() {
         int longestShortestPath = -1;
         int longestNode = -1;
 
+        // Complejidad: O(n) donde n es la cantidad de nodos
         for (int i = 1; i <= nodes; i++) {
             if (
                 shortestPaths[i] != -1 &&
