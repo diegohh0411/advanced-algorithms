@@ -7,17 +7,19 @@
 using PriceWeight = std::pair<int, int>; // <price, weight>
 using ItemList = std::vector<PriceWeight>;
 
-int knapsack(ItemList& items, int capacity) {
+// Complejidad temporal: O(n * max_capacity), donde n es el número de items
+// Retorna un vector con el valor máximo para cada capacidad de 0 a max_capacity
+std::vector<int> knapsack(ItemList& items, int max_capacity) {
     int n = items.size();
 
     // dp[i][w] = max value using first i items with weight limit w
-    std::vector<std::vector<int>> dp(n + 1, std::vector<int>(capacity + 1, 0));
+    std::vector<std::vector<int>> dp(n + 1, std::vector<int>(max_capacity + 1, 0));
 
     for (int i = 1; i <= n; i++) {
         int price = items[i - 1].first;
         int weight = items[i - 1].second;
 
-        for (int w = 0; w <= capacity; w++) {
+        for (int w = 0; w <= max_capacity; w++) {
             // Don't take the item i
             dp[i][w] = dp[i - 1][w];
 
@@ -28,9 +30,11 @@ int knapsack(ItemList& items, int capacity) {
         }
     }
 
-    return dp[n][capacity];
+    // Retornar la última fila (resultados para todas las capacidades)
+    return dp[n];
 }
 
+// Complejidad temporal: O(t * (n + g + n * max_capacity)), donde max_capacity es el peso máximo entre todas las personas
 int main() {
     int t, n, p, w, g, mw;
     std::cin >> t;
@@ -49,11 +53,23 @@ int main() {
 
         std::cin >> g;
 
-        int totalValue = 0;
+        // Leer todas las capacidades y encontrar la máxima
+        std::vector<int> capacities;
+        int max_capacity = 0;
 
         for (int j = 0; j < g; j++) {
             std::cin >> mw;
-            totalValue += knapsack(items, mw);
+            capacities.push_back(mw);
+            max_capacity = std::max(max_capacity, mw);
+        }
+
+        // Calcular knapsack una sola vez hasta la capacidad máxima
+        std::vector<int> dp = knapsack(items, max_capacity);
+
+        // Sumar los valores para cada capacidad
+        int totalValue = 0;
+        for (int capacity : capacities) {
+            totalValue += dp[capacity];
         }
 
         std::cout << totalValue << std::endl;
