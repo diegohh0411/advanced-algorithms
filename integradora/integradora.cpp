@@ -118,7 +118,7 @@ int main() {
     auto [mcodes, transmissions] = readFiles();
 
     for (str mcode : mcodes) {
-        std::cout << "Código: " << mcode << std::endl;
+        std::cout << "Codigo: " << mcode << std::endl;
         
         for (std::pair trans : transmissions) {
             str filename = trans.first;
@@ -133,6 +133,16 @@ int main() {
             int ocurrances = patternPositions.size();
 
             std::cout << displayName << " ==> " << ocurrances << " veces" << std::endl;
+
+            for (int i = 0; i < patternPositions.size(); i++) {
+                std::cout << patternPositions[i];
+
+                if (i == patternPositions.size() - 1) {
+                    std::cout << std::endl;
+                } else {
+                    std::cout << ", ";
+                }
+            }
         }
     }
 
