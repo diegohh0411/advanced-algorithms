@@ -1,0 +1,25 @@
+En equipos de máximo 2 personas, escribe un programa en C++ que lea 5 archivos de texto (de nombre fijo, no se piden al usuario) que contienen exclusivamente caracteres del 0 al 9, caracteres entre A y F y saltos de línea
+     transmission1.txt
+     transmission2.txt
+     mcode1.txt
+     mcode2.txt
+     mcode3.txt
+
+Los archivos de transmisión contienen caracteres de texto que representan el envío de datos de un dispositivo a otro.
+El archivo mcode.txt representa posibles códigos maliciosos (uno por renglón) que se pueden encontrar dentro de una transmisión.
+
+El programa debe analizar si el contenido del archivo mcode.txt están contenidos en los archivos transmission1.txt, transmission2.txt  y transmission3.txt y generando un archivo de salida llamado checking.txt en donde muestre por cada posible código malicioso la cantidad de incidencias en cada uno de los tres archivos de trasmisión así como las posiciones donde se encontraron, así como la subsecuencia del código con un caracter menos del original que fue mas encontrado dentro de los tres archivos de transmisión.
+
+Suponiendo que el código malicioso tiene siempre código "espejado" (palíndromos de caracteres), sería buena idea buscar este tipo de código en una transmisión. El programa después debe buscar si hay código "espejado" dentro de los archivos de transmisión. (palíndromo a nivel chars, no meterse a nivel bits). El programa agregará en el archivo de salida al final el palíndromo más largo de cada uno de los archivos de transmisión, así como la posición donde se encuentra.
+
+Finalmente, el programa analiza qué tan similares son los tres archivos de transmisión con combinaciones de 2 (t1-t2, t1-t3, t2-t3), y debe desplegar en el archivo de salida los substrings más largos de cada una de las tres combinaciones. Tomar como máximo que el string de transmisión tiene 1,000 caracteres.
+
+Checar ejemplo de archivo de salida.
+
+input
+     nada, solamente deben existir los 5 archivos en la misma ruta donde se ejecuta el programa    
+
+output
+ 
+
+    nada, solo que termino el análisis y generó en archivo de salida llamado checking.txt 
