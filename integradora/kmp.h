@@ -103,7 +103,10 @@ tup<str, int, str> MostFrequentSubsequence( // <subsequence, frequency, filename
 }
 
 void KmpManager(strVec& mcodes, traVec& transmissions) {
-    for (str mcode : mcodes) {
+    int mn = mcodes.size();
+
+    for (int i = 0; i < mn; i++) {
+        str mcode = mcodes[i];
         std::cout << "Codigo: " << mcode << std::endl;
         
         for (Transmission trans : transmissions) {
@@ -128,10 +131,12 @@ void KmpManager(strVec& mcodes, traVec& transmissions) {
 
         std::cout << "La subsecuencia mas encontrada es: " << subsequence << " con " << frequency << " veces en el archivo " << filename << std::endl;
 
-        std::cout << "--------------" << std::endl;
+        if (i < mn - 1) {
+            std::cout << "--------------" << std::endl;
+        } else { 
+            std::cout << "==============" << std::endl;
+        }
     }
-
-    std::cout << "==============" << std::endl;
 }
 
 #endif
