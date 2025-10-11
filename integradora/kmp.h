@@ -14,7 +14,7 @@ using strPair = std::pair<str, str>;
 using strPairVec = std::vector<strPair>;
 
 // Complejidad: O(N), donde N es el tamaño del patrón.
-intVec ComputeLps(str& pattern) {
+intVec ComputeLps(const str& pattern) {
     int m = pattern.length();
     intVec lps(m, 0);
     int len = 0;
@@ -39,7 +39,7 @@ intVec ComputeLps(str& pattern) {
 }
 
 // Complejidad: O(N + M), donde N es el tamaño del texto y M es el tamaño del patrón.
-intVec Kmp(str text, str pattern) {
+intVec Kmp(const str& text, const str& pattern) {
     intVec positions;
     intVec lps = ComputeLps(pattern);
 
@@ -72,8 +72,8 @@ intVec Kmp(str text, str pattern) {
 
 // Complejidad: O(L * K * (C + P)), donde L es la longitud del `code`, K es el número de transmisiones y C es la longitud del contenido cada transmisión y P es la longitud de la subsecuencia.
 tup<str, int, str> MostFrequentSubsequence( // <subsequence, frequency, filename>
-    str code,
-    traVec& trs
+    const str& code,
+    const traVec& trs
 ) {
     int maxFreq = 0;
     str bestSubsequence = "";
@@ -106,7 +106,7 @@ tup<str, int, str> MostFrequentSubsequence( // <subsequence, frequency, filename
 }
 
 // Complejidad: O(M * [(K * E) + (L * K (C + P)))]) donde M es la cantidad de códigos maliciosos, E es el número de patrones encontrados, L es la longitud del `mcode`, K es el número de transmisiones y C es la longitud del contenido cada transmisión y P es la longitud de la subsecuencia.
-void KmpManager(strVec& mcodes, traVec& transmissions) {
+void KmpManager(const strVec& mcodes, const traVec& transmissions) {
     int mn = mcodes.size();
 
     for (int i = 0; i < mn; i++) { // O(M)

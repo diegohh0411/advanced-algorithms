@@ -30,7 +30,7 @@ str LongestCommontSubstring(const str& s1, const str& s2) {
 }
 
 // Complejidad: O(F * G), donde F y G son los tamaños de los textos comparados
-void LcsManager(traVec trs) {
+void LcsManager(const traVec& trs) {
     std::cout << "Los Substring mas largos son:" << std::endl;
 
     std::cout << "T1-T2 ==> " << LongestCommontSubstring(trs[0].content, trs[1].content) << std::endl;
