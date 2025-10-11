@@ -6,6 +6,7 @@
 #include <vector>
 #include "common.h"
 
+// Complejidad: O(N), donde N es el número total de líneas en los archivos a leer
 std::tuple<strVec, traVec> readFiles() {
     strVec mcodes = {};
     strVec maliciousCodeFilesToRead = { "mcode.txt" };

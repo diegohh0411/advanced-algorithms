@@ -10,6 +10,7 @@ public:
     std::string filename;
     std::string content;
 
+    // O(1), esta función es de tiempo constante
     Transmission(std::string filename, std::string content) {
         this->filename = filename;
         this->content = content;
