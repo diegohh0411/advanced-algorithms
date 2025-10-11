@@ -7,7 +7,7 @@
 #include "common.h"
 
 // Complejidad: O(N), donde N es el tamaño del string.
-str ManacherPreprocess(const str& s) {
+str manacherPreprocess(const str& s) {
     str result = "#";
 
     for (char c : s) {
@@ -19,8 +19,8 @@ str ManacherPreprocess(const str& s) {
 }
 
 // Complejidad: O(N), donde N es el tamaño del string.
-std::tuple<int, int, str> Manacher(const str& s) { // <length, index, content>
-    str T = ManacherPreprocess(s);
+std::tuple<int, int, str> manacher(const str& s) { // <length, index, content>
+    str T = manacherPreprocess(s);
     int n = T.length();
     intVec P(n, 0);
     int C = 0;
@@ -68,11 +68,11 @@ std::tuple<int, int, str> Manacher(const str& s) { // <length, index, content>
 }
 
 // Complejidad: O(T * Q), donde T es el número de transmisiones y Q es la longitud de cada transmisión.
-void ManacherManager(const traVec& transmissions) {
+void manacherManager(const traVec& transmissions) {
     std::cout << "Palindromo mas grande:" << std::endl;
 
     for (Transmission tr : transmissions) {
-        auto [length, start, content] = Manacher(tr.content);
+        auto [length, start, content] = manacher(tr.content);
 
         std::cout << tr.filename << " ==> Posicion: " << start << std::endl;
         std::cout << content << std::endl;

@@ -5,7 +5,7 @@
 #include "common.h"
 
 // Complejidad: O(F * G), donde F y G son los tamaños de los strings.
-str LongestCommontSubstring(const str& s1, const str& s2) {
+str longestCommontSubstring(const str& s1, const str& s2) {
     int n = s1.length();
     int m = s2.length();
 
@@ -30,12 +30,12 @@ str LongestCommontSubstring(const str& s1, const str& s2) {
 }
 
 // Complejidad: O(F * G), donde F y G son los tamaños de los textos comparados
-void LcsManager(const traVec& trs) {
+void lcsManager(const traVec& trs) {
     std::cout << "Los Substring mas largos son:" << std::endl;
 
-    std::cout << "T1-T2 ==> " << LongestCommontSubstring(trs[0].content, trs[1].content) << std::endl;
-    std::cout << "T1-T3 ==> " << LongestCommontSubstring(trs[0].content, trs[2].content) << std::endl;
-    std::cout << "T2-T3 ==> " << LongestCommontSubstring(trs[1].content, trs[2].content) << std::endl;
+    std::cout << "T1-T2 ==> " << longestCommontSubstring(trs[0].content, trs[1].content) << std::endl;
+    std::cout << "T1-T3 ==> " << longestCommontSubstring(trs[0].content, trs[2].content) << std::endl;
+    std::cout << "T2-T3 ==> " << longestCommontSubstring(trs[1].content, trs[2].content) << std::endl;
 }
 
 #endif
