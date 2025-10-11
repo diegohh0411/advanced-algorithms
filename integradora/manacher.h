@@ -74,6 +74,8 @@ void ManacherManager(traVec& transmissions) {
         std::cout << tr.filename << " ==> Posicion: " << start << std::endl;
         std::cout << content << std::endl;
     }
+
+    std::cout << "==============" << std::endl;
 }
 
 #endif

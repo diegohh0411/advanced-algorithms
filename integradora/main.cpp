@@ -5,6 +5,7 @@
 #include "kmp.h"
 #include "manacher.h"
 #include "files.h"
+#include "lcs.h"
 #include "common.h"
 
 int main() {
@@ -12,6 +13,7 @@ int main() {
 
     KmpManager(mcodes, transmissions);
     ManacherManager(transmissions);
+    LcsManager(transmissions);
 
     return 0;
 }

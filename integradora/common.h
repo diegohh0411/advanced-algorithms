@@ -21,8 +21,12 @@ using str = std::string;
 template<typename... Args>
 using tup = std::tuple<Args...>;
 
-using strVec = std::vector<str>;
-using traVec = std::vector<Transmission>;
+template <typename... Args>
+using vec = std::vector<Args...>;
+
+using intVec = vec<int>;
+using strVec = vec<str>;
+using traVec = vec<Transmission>;
 
 
 
