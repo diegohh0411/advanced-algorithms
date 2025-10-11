@@ -14,7 +14,7 @@ using strVec = std::vector<str>;
 using strPair = std::pair<str, str>;
 using strPairVec = std::vector<strPair>;
 
-// Complejidad: O(N), donde N es el tamaño del patrón.
+// Complejidad: O(M), donde M es el tamaño del patrón.
 intVec computeLps(str& pattern) {
     int m = pattern.length();
     intVec lps(m, 0);
