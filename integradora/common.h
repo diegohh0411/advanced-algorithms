@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <tuple>
 
 class Transmission {
 public:
@@ -16,6 +17,9 @@ public:
 };
 
 using str = std::string;
+
+template<typename... Args>
+using tup = std::tuple<Args...>;
 
 using strVec = std::vector<str>;
 using traVec = std::vector<Transmission>;

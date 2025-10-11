@@ -68,11 +68,38 @@ intVec Kmp(str text, str pattern) {
     return positions;
 }
 
-void subsecuenciaConMayorRepeticion(
+tup<str, int, str> MostFrequentSubsequence( // <subsequence, frequency, filename>
     str code,
     traVec& trs
 ) {
+    int maxFreq = 0;
+    str bestSubsequence = "";
+    str bestFile = "";
 
+    // Generamos todas las subsecuencias quitando 1 carácter
+    for (int i = 0; i < code.length(); i++) {
+        str codeSubsequence = code.substr(0, i) + code.substr(i + 1);
+        int totalFreq = 0;
+        str currentFile = "";
+
+        // Buscamos la subsecuencia en cada transmisión
+        for (Transmission tr : trs) {
+            intVec positions = Kmp(tr.content, codeSubsequence);
+            int freq = positions.size();
+            
+            if (freq > maxFreq) {
+                maxFreq = freq;
+                bestSubsequence = codeSubsequence;
+                bestFile = tr.filename;
+            }
+        }
+    }
+
+    return std::make_tuple(
+        bestSubsequence,
+        maxFreq,
+        bestFile
+    );
 }
 
 void KmpManager(strVec& mcodes, traVec& transmissions) {
@@ -97,7 +124,9 @@ void KmpManager(strVec& mcodes, traVec& transmissions) {
             }
         }
 
-        // std::cout << "La subsecuencia mas encontrada es:" << std::endl;
+        auto [subsequence, frequency, filename] = MostFrequentSubsequence(mcode, transmissions);
+
+        std::cout << "La subsecuencia mas encontrada es: " << subsequence << " con " << frequency << " veces en el archivo " << filename << std::endl;
 
         std::cout << "--------------" << std::endl;
     }
