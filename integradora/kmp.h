@@ -6,7 +6,8 @@
 #include <string>
 #include <utility>
 
-using str = std::string;
+#include "common.h"
+
 using intVec = std::vector<int>;
 using strVec = std::vector<str>;
 using strPair = std::pair<str, str>;
@@ -67,18 +68,23 @@ intVec Kmp(str text, str pattern) {
     return positions;
 }
 
-void KmpManager(strVec& mcodes, strPairVec& transmissions) {
+void subsecuenciaConMayorRepeticion(
+    str code,
+    traVec& trs
+) {
+
+}
+
+void KmpManager(strVec& mcodes, traVec& transmissions) {
     for (str mcode : mcodes) {
         std::cout << "Codigo: " << mcode << std::endl;
         
-        for (std::pair trans : transmissions) {
-            str filename = trans.first;
-            str content = trans.second;
+        for (Transmission trans : transmissions) {
 
-            intVec patternPositions = Kmp(content, mcode);
+            intVec patternPositions = Kmp(trans.content, mcode);
             int ocurrances = patternPositions.size();
 
-            std::cout << filename << " ==> " << ocurrances << " veces" << std::endl;
+            std::cout << trans.filename << " ==> " << ocurrances << " veces" << std::endl;
 
             for (int i = 0; i < patternPositions.size(); i++) {
                 std::cout << patternPositions[i];

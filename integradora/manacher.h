@@ -4,11 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
-using str = std::string;
-using intVec = std::vector<int>;
-using strPair = std::pair<str, str>;
-using strPairVec = std::vector<strPair>;
+#include "common.h"
 
 str ManacherPreprocess(str& s) {
     str result = "#";
@@ -69,13 +65,13 @@ std::tuple<int, int, str> Manacher(str s) { // <length, index, content>
     );
 }
 
-void ManacherManager(strPairVec& transmissions) {
+void ManacherManager(traVec& transmissions) {
     std::cout << "Palindromo mas grande:" << std::endl;
 
-    for (strPair tr : transmissions) {
-        auto [length, start, content] = Manacher(tr.second);
+    for (Transmission tr : transmissions) {
+        auto [length, start, content] = Manacher(tr.content);
 
-        std::cout << tr.first << " ==> Posicion: " << start << std::endl;
+        std::cout << tr.filename << " ==> Posicion: " << start << std::endl;
         std::cout << content << std::endl;
     }
 }

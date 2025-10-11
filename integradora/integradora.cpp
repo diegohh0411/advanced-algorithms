@@ -5,6 +5,7 @@
 #include "kmp.h"
 #include "manacher.h"
 #include "files.h"
+#include "common.h"
 
 int main() {
     auto [mcodes, transmissions] = readFiles();

@@ -4,13 +4,9 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "common.h"
 
-using str = std::string;
-using strVec = std::vector<str>;
-using strPair = std::pair<str, str>;
-using strPairVec = std::vector<strPair>;
-
-std::tuple<std::vector<str>, strPairVec> readFiles() {
+std::tuple<strVec, traVec> readFiles() {
     strVec mcodes = {};
     strVec maliciousCodeFilesToRead = { "mcode.txt" };
 
@@ -23,7 +19,7 @@ std::tuple<std::vector<str>, strPairVec> readFiles() {
         }
     }
 
-    std::vector<std::pair<str, str>> transmissions = {};
+    traVec transmissions = {};
     strVec transmissionFilesToRead = { "transmission1.txt", "transmission2.txt", "transmission3.txt" };
 
     for (str fileName : transmissionFilesToRead) {
@@ -35,11 +31,10 @@ std::tuple<std::vector<str>, strPairVec> readFiles() {
             content += line;
         }
 
+        Transmission tr(fileName, content);
+
         transmissions.push_back(
-            std::make_pair(
-                fileName,
-                content
-            )
+            tr
         );
     }
 
