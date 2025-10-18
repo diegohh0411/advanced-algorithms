@@ -1,0 +1,63 @@
+In BeagleTown live some beagles in their own doghouses, Prue who is the Sparko’s girlfriend is
+preparing a birthday party for him, and she wants everybody in town be part of the party, but she
+is going to prepare a gourmet dinner and she needs to confirm the assistance of each one in
+BeagleTown, that why she needs to go to the doghouse of each one and return to her house to
+start to prepare the dinner as soon as possible. Help Prue to go to all the doghouses and return
+her doghouse in the shortest time. Prue lives in the doghouse A.    
+
+Input
+The first line in the input contains two integers N, M(2<=N<=20, 1<=M <=5000), the number of
+doghouses (N) and the number of roads (M). Then came the M lines, one per road with 2 characters
+and integer that means the distance between those doghouses.
+Output
+Print a line containing the minimal distance that Prue needs to visit all the doghouses and return
+her doghouse.
+Sample Input 1
+4 5
+A B 5
+A C 10
+A D 8
+B C 2
+C D 1
+Sample Output 1
+16
+Sample Input 2
+5 7
+A B 4
+A C 8
+A D 2
+B C 7
+B D 2
+C D 1
+D E 3
+Sample Output 2
+INF
+Sample Input 3
+7 11
+A B 2
+A C 4
+A D 6
+B C 2
+B E 6
+C D 1
+C E 3
+D E 2
+D F 3
+E G 5
+F G 4
+Sample Output 3
+25
+Sample Input 4
+5 10
+A B 4
+A C 8
+A D 5
+A E 3
+B C 7
+B D 2
+B E 2
+C D 1
+C E 4
+D E 3
+Sample Output 4
+14
