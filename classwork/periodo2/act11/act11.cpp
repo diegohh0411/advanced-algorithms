@@ -24,13 +24,12 @@ char intToChar(int x) {
 int heldKarp(adjMatrix& graph) {
     int n = graph.size();
     
-    // dp[mask][i] = minimum cost to visit all nodes in mask ending at node i
+    // dp[mask][i]
     std::vector<std::vector<int>> dp(1 << n, std::vector<int>(n, INF));
     
-    // Start at node 0, which is the house A
+    // Empezamos en el nodo 0
     dp[1][0] = 0;
     
-    // Iterate through all subsets
     for (int mask = 1; mask < (1 << n); mask++) {
         for (int last = 0; last < n; last++) {
             // Skip if last node is not in the current subset
@@ -65,7 +64,6 @@ int heldKarp(adjMatrix& graph) {
         }
     }
     
-    // Find minimum cost to visit all nodes and return to start
     int fullMask = (1 << n) - 1;
     int minCost = INF;
     
