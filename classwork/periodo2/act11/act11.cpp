@@ -88,7 +88,7 @@ int heldKarp(adjMatrix& graph) {
     return minCost;
 }
 
-// Complejidad temporal: O(N^2 + M)
+// Complejidad: O(N^2 + M)
 adjMatrix readInput() {    
     int N, M;
     std::cin >> N >> M;
@@ -115,10 +115,11 @@ adjMatrix readInput() {
     return graph;
 }
 
+// Complejidad: O(2^n * n^2 + n^2 + m)
 int main() {
-    adjMatrix graph = readInput();
+    adjMatrix graph = readInput(); // O(n^2 + m)
     
-    int result = heldKarp(graph);
+    int result = heldKarp(graph); // O(2^n * n^2)
     
     if (result == INF) {
         std::cout << "INF" << std::endl;
