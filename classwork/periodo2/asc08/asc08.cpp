@@ -17,14 +17,18 @@ class Graph {
     std::vector<Edge>* adj; // An array of Edges
 
 public:
+    // Complejidad: O(n)
+    // Donde n es el número de nodos
     Graph(int n) {
         adj = new std::vector<Edge>[n];
         this->n = n;
         level = new int[n];
     }
 
+    // Complejidad: O(1)
+    // Operaciones de inserción al final de un vector son constantes en promedio
     void addEdge(int u, int v, int c) {
-        std::cout << "Adding edge <" << u << " --" << c << "-- " << v << ">" << std::endl; 
+        // std::cout << "Adding edge <" << u << " --" << c << "-- " << v << ">" << std::endl; 
 
         // Forward edge
         Edge a { v, 0, c, (int)adj[v].size() };
@@ -36,8 +40,10 @@ public:
         adj[v].push_back(b);
     }
 
-    // This DFS-based function finds out if more flow can be sent from node S to node T
-    bool isFlowPossible(int s, int t) { // Source (s) and Sink (t)
+    // Complejidad: O(V + E)
+    // Donde V es el número de vértices y E es el número de aristas
+    // Es un BFS (Breadth-First Search) que visita cada nodo y cada arista una vez
+    bool isFlowPossible(int s, int t) { // This DFS-based function finds out if more flow can be sent from node S to node T
         for (int i = 0; i < n; i++)
             level[i] = -1;
 
@@ -66,8 +72,10 @@ public:
         return level[t] < 0 ? false : true;
     }
 
-    // This DFS-based function sends flow after Graph::DFS has figured out if there is more possible flow.
-    int sendFlow(int u, int flow, int t, int start[]) {
+    // Complejidad: O(V * E)
+    // Donde V es el número de vértices y E es el número de aristas
+    // En el peor caso, puede visitar todos los vértices y explorar todas sus aristas
+    int sendFlow(int u, int flow, int t, int start[]) { // This DFS-based function sends flow after Graph::DFS has figured out if there is more possible flow.
         if (u == t) // Sink has been reached
             return flow;
 
@@ -92,6 +100,9 @@ public:
         return 0;
     }
 
+    // Complejidad: O(V^2 * E)
+    // Donde V es el número de vértices y E es el número de aristas
+    // Algoritmo de Dinic: El BFS se ejecuta O(V) veces, y en cada iteración se pueden hacer múltiples llamadas a sendFlow que toma O(V * E)
     int maxFlow(int s, int t) {
         if (s == t) 
             return -1;
@@ -112,6 +123,9 @@ public:
     }
 };
 
+// Complejidad total: O(E + V^2 * E) = O(V^2 * E)
+// Donde V es el número de vértices y E es el número de aristas
+// Incluye la lectura de datos O(E) y la ejecución del algoritmo de flujo máximo O(V^2 * E)
 int main() {
     int n, e, u, v, c;
     std::cin >> n >> e;
@@ -123,7 +137,7 @@ int main() {
         g.addEdge(u, v, c);
     }
 
-    std::cout << g.maxFlow(1, n);
+    std::cout << "The maximum speed is " << g.maxFlow(1, n) << "." << std::endl;
         
     return 0;
 }
